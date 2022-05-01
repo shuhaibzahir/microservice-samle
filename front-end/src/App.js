@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
-
+import { useEffect, useState } from 'react';
+import PostCreate from './components/PostCreate'
+import Postview from "./components/Postview"
+import axios from 'axios';
 function App() {
+  const [posts,setPosts]= useState({})
+
+  const fetchPosts = async()=>{
+    const res  = await axios.get("http://localhost:5050/posts")
+    setPosts(res.data)
+  } 
+
+  useEffect(()=>{
+    fetchPosts()
+  },[])
+
+  const renderedPosts = Object.values(posts).map((item)=><Postview post={item} key={item.id}/>)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="">
+        <PostCreate />
+    <div className='row'>
+     {renderedPosts}
+    </div>
     </div>
   );
 }
