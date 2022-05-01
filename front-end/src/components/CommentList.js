@@ -10,7 +10,6 @@ const CommentList = ({postId}) => {
     useEffect(()=>{
         fetchComments()
     },[])
-    console.log('asdfds')
   return (
     <div> 
         <ul>

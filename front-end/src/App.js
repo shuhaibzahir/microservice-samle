@@ -17,9 +17,10 @@ function App() {
   const renderedPosts = Object.values(posts).map((item)=><Postview post={item} key={item.id}/>)
   return (
     <div className="">
-        <PostCreate />
+        <PostCreate setPosts={setPosts}/>
     <div className='row'>
      {renderedPosts}
+
     </div>
     </div>
   );
