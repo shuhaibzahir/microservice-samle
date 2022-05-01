@@ -6,7 +6,6 @@ const CreateComment = ({id}) => {
         e.preventDefault()
        await axios.post(`http://localhost:6060/posts/${id}/comments`,{content:comment})
        setComment('')
-
     }
   return (
     <div >

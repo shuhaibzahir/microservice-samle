@@ -7,7 +7,7 @@ const Postview = ({post}) => {
     <div style={{padding:"10px"}}>
         <h1>{post.title}</h1>
         <p>comments</p>
-        <CommentList id={post.id} />
+        <CommentList postId={post.id} />
         <AddComment id={post.id}/>
 
     </div>

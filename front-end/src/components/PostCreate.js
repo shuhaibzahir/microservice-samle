@@ -6,6 +6,7 @@ const PostCreate = ({setPosts}) => {
      if(title.trim().length>2){
          const data = {title}
      await axios.post('http://localhost:5050/posts',data) 
+     setTitle('')
     }
  }
 
