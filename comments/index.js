@@ -31,5 +31,5 @@ app.get("/posts/comments",(req,res)=>{
  
 
 app.listen(6060,()=>{
-    console.log("this is running port 6060")
+    console.log("this is running port 6060 and this is for comments")
 })
