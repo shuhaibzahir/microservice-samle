@@ -31,6 +31,7 @@ app.post('/posts',async(req,res)=>{
        id,
        title
    })
+   
     res.status(201).send(posts[id])
 })
 
