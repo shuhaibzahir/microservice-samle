@@ -26,9 +26,9 @@ app.get("/posts/:id/comments",(req,res)=>{
      axios.post("http://localhost:4040/events",{
          type:'CommentCreated',
          data:{
-             id:commentId,
+             id:commentId, 
              postId:id,
-             comment:content,
+             content
          }
      }) 
      res.status(201).send(commentsByPostId[id])
