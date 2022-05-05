@@ -18,8 +18,14 @@ app.post("/events",(req,res)=>{
             posts[req.body.id]={id:req.body.id,title:req.body.title,comments:[]}
             break;
         case events.commentCreated:
-            posts[req.body.data.postId].comments.push({id:req.body.data.id,content:req.body.data.content})
+            posts[req.body.data.postId].comments.push({id:req.body.data.id,content:req.body.data.content, status:'pending'})
             break;
+        case events.commentModerated:
+           const comment=  posts[req.body.postId].comments.find(i=>i.id==req.body.commentId)
+           comment.status= req.body.status
+           console.log(posts[req.body.postId].comments)
+           break;
+
         default:
             break;
     }

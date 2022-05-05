@@ -1,4 +1,5 @@
 module.exports={
     postCreated:'PostCreated',
-    commentCreated:'CommentCreated'
+    commentCreated:'CommentCreated',
+    commentModerated:'CommentModerated'
 }
