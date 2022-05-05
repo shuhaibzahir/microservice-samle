@@ -14,10 +14,13 @@ app.post("/events",(req,res)=>{
             const {content} = req.body.data
             const status = content.includes('orange')?'Rejected':'approved'
             axios.post("http://localhost:4040/events",{
-                type:'CommentModerated',
+                type:'CommentUpdated',
                 postId:req.body.data.postId,
-                commentId:req.body.data.id,
-                status
+                comment:{
+                    id:req.body.data.id,
+                    content:req.body.data.content,
+                    status
+                }
             })
             res.send({status:"ok"})
     }

@@ -21,20 +21,34 @@ app.get("/posts/:id/comments",(req,res)=>{
      const {content}=req.body;
      const commentId = randomBytes(4).toString('hex');
      const comments = commentsByPostId[id]||[]
-     comments.push({id:commentId,content:content})
+     comments.push({id:commentId,content:content,status:'pending'})
      commentsByPostId[id]=comments
      axios.post("http://localhost:4040/events",{
          type:'CommentCreated',
          data:{
              id:commentId, 
              postId:id,
-             content
+             content,
+             status:'pending'
          }
      }) 
      res.status(201).send(commentsByPostId[id])
  })
 
  
+ app.post("/events",(req,res)=>{
+     console.log(req.body)
+     const {type}= req.body;
+     switch(type){
+         case 'CommentUpdated':
+             const {comment}= req.body
+            const postComments= commentsByPostId[req.body.postId]
+            const currentComment = postComments.find((i)=>i.id==comment.id)
+            currentComment.status=comment.status
+             break;
+     }
+     res.send({status:'ok'})
+ })
 
 app.listen(6060,()=>{
     console.log("this is running port 6060 and this is for comments")
