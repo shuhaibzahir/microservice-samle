@@ -6,7 +6,8 @@ function App() {
   const [posts,setPosts]= useState({})
 
   const fetchPosts = async()=>{
-    const res  = await axios.get("http://localhost:5050/posts")
+    const res  = await axios.get("http://localhost:7070/posts")
+    console.log(res.data)
     setPosts(res.data)
   } 
 
@@ -20,7 +21,6 @@ function App() {
         <PostCreate setPosts={setPosts}/>
     <div className='row'>
      {renderedPosts}
-
     </div>
     </div>
   );
