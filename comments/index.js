@@ -16,14 +16,14 @@ app.get("/posts/:id/comments",(req,res)=>{
 
  
 
- app.post("/posts/:id/comments",(req,res)=>{
+ app.post("/posts/:id/comments",async(req,res)=>{
      const {id}=req.params;
      const {content}=req.body;
      const commentId = randomBytes(4).toString('hex');
      const comments = commentsByPostId[id]||[]
      comments.push({id:commentId,content:content,status:'pending'})
      commentsByPostId[id]=comments
-     axios.post("http://localhost:4040/events",{
+     await axios.post("http://localhost:4040/events",{
          type:'CommentCreated',
          data:{
              id:commentId, 
