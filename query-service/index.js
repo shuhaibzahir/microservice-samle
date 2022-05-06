@@ -41,11 +41,15 @@ app.get("/posts",(req,res)=>{
 })
 
 
-app.listen(7070,async()=>{
+app.listen(7070,()=>{
     console.log("started with 7070 data query service")
-    const res = await axios.get("http://localhost:4040/events")
-    res.data.forEach(event => {
-        const {type}= event
-        handleEvents(type,event)
-    });
+    axios.get("http://localhost:4040/events").then(res=>{
+        res.data.forEach(event => {
+            const {type}= event
+            handleEvents(type,event)
+        });
+    }).catch(err=>{
+        console.log(err.message)
+    })
+    
 })

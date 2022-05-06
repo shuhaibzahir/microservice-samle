@@ -8,7 +8,7 @@ app.use(express.urlencoded({extended:false}))
 const events =[]
 app.post("/events",(req,res)=>{
     const event  = req.body
-    event.push(event)
+    events.push(event)
     axios.post("http://localhost:5050/events", event)
     axios.post("http://localhost:6060/events", event)
     axios.post("http://localhost:7070/events", event)
