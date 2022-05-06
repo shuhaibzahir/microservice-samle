@@ -25,6 +25,7 @@ app.post("/events",(req,res)=>{
             const postComments= posts[req.body.postId].comments
             const currentComment = postComments.find((i)=>i.id==comment.id)
             currentComment.status=comment.status
+            currentComment.content=comment.content
            break;
 
         default:
