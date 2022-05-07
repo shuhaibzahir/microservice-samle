@@ -1,0 +1,8 @@
+appVersion: v1
+kind: Pod
+metadata:
+  name: posts
+sepc:
+  containers:
+    - name: posts
+      image: shuhaib/post:0.0.1
