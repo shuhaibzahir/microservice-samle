@@ -42,15 +42,6 @@ app.post('/events',(req,res)=>{
 
 
 
-
-
-
-
-
-
-
-
-
 app.listen(5050,()=>{
     console.log("this is running port 5050 and this is post")
 })
