@@ -21,5 +21,5 @@ app.get("/events",(req,res)=>{
 })
 
 app.listen(4040,()=>{
-    console.log('server of events started on 4040')
+    console.log('server of events started on 4040...')
 })
