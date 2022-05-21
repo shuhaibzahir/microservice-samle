@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: moduration-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: moduration
+  template:
+    metadata:
+      labels:
+        app: moduration
+    spec:
+      containers:
+        - name: moduration
+          image: shuhaibzahir/moduration
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: moduration-cluster-srv
+spec:
+  selector:
+    app: moduration
+  ports:
+    - name: moduration-srv
+      protocol: TCP
+      port: 8080
+      targetPort: 8080
+      

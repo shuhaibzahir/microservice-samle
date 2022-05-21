@@ -37,12 +37,17 @@ app.post("/events",(req,res)=>{
 })
 
 app.get("/posts",(req,res)=>{
+<<<<<<< Updated upstream
+=======
+    console.log('post sending',posts)
+>>>>>>> Stashed changes
     res.send(posts)
 })
 
 
 app.listen(7070,()=>{
     console.log("started with 7070 data query service")
+<<<<<<< Updated upstream
     axios.get("http://event-bus-srv:4040/events").then(res=>{
         res.data.forEach(event => {
             const {type}= event
@@ -52,4 +57,6 @@ app.listen(7070,()=>{
         console.log(err.message)
     })
     
+=======
+>>>>>>> Stashed changes
 })
