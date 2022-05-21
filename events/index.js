@@ -9,10 +9,10 @@ const events =[]
 app.post("/events",(req,res)=>{
     const event  = req.body
     events.push(event)
-    axios.post("http://localhost:5050/events", event)
-    axios.post("http://localhost:6060/events", event)
-    axios.post("http://localhost:7070/events", event)
-    axios.post("http://localhost:8080/events", event)
+    axios.post("http://post-cluster-srv:5050/events", event)
+    // axios.post("http://localhost:6060/events", event)
+    // axios.post("http://localhost:7070/events", event)
+    // axios.post("http://localhost:8080/events", event)
     res.send({status:'ok'})
 })
 
