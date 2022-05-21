@@ -28,6 +28,7 @@ jobs:
         name: posts
         uses: docker/build-push-action@v2
         with:
+          context: ./moderation
           file: ./moderation/Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/moderation:latest

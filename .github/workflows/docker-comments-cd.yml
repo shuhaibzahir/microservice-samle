@@ -28,6 +28,7 @@ jobs:
         name: Event-bus
         uses: docker/build-push-action@v2
         with:
+          context: ./comments
           file: ./comments/Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/comments:latest

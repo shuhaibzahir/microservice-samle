@@ -28,6 +28,7 @@ jobs:
         name: posts
         uses: docker/build-push-action@v2
         with:
+          context: ./query-service
           file: ./query-service/Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/query-srv:latest
