@@ -43,7 +43,7 @@ app.get("/posts",(req,res)=>{
 
 app.listen(7070,()=>{
     console.log("started with 7070 data query service")
-    axios.get("http://localhost:4040/events").then(res=>{
+    axios.get("http://event-bus-srv:4040/events").then(res=>{
         res.data.forEach(event => {
             const {type}= event
             handleEvents(type,event)
