@@ -23,7 +23,7 @@ app.get("/posts/:id/comments",(req,res)=>{
      const comments = commentsByPostId[id]||[]
      comments.push({id:commentId,content:content,status:'pending'})
      commentsByPostId[id]=comments
-     await axios.post("http://localhost:4040/events",{
+     await axios.post("http://event-bus-srv:4040/events",{
          type:'CommentCreated',
          data:{
              id:commentId, 
@@ -45,6 +45,8 @@ app.get("/posts/:id/comments",(req,res)=>{
             const postComments= commentsByPostId[req.body.postId]
             const currentComment = postComments.find((i)=>i.id==comment.id)
             currentComment.status=comment.status
+             break;
+         default:
              break;
      }
      res.send({status:'ok'})

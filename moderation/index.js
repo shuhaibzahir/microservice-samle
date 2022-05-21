@@ -13,7 +13,7 @@ app.post("/events",(req,res)=>{
         case 'CommentCreated':
             const {content} = req.body.data
             const status = content.includes('orange')?'Rejected':'approved'
-            axios.post("http://localhost:4040/events",{
+            axios.post("http://event-bus-srv:4040/events",{
                 type:'CommentUpdated',
                 postId:req.body.data.postId,
                 comment:{
@@ -23,6 +23,8 @@ app.post("/events",(req,res)=>{
                 }
             })
             res.send({status:"ok"})
+        default:
+            break;
     }
 })
 
