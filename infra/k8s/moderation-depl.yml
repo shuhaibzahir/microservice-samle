@@ -1,30 +1,30 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: moduration-depl
+  name: moderation-depl
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: moduration
+      app: moderation
   template:
     metadata:
       labels:
-        app: moduration
+        app: moderation
     spec:
       containers:
-        - name: moduration
-          image: shuhaibzahir/moduration
+        - name: moderation
+          image: shuhaibzahir/moderation
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: moduration-cluster-srv
+  name: moderation-cluster-srv
 spec:
   selector:
-    app: moduration
+    app: moderation
   ports:
-    - name: moduration-srv
+    - name: moderation-srv
       protocol: TCP
       port: 8080
       targetPort: 8080

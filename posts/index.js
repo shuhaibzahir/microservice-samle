@@ -14,9 +14,9 @@ app.get("/posts",(req,res)=>{
     res.send(posts)
 })
 
-app.get("/posts/:id",(req,res)=>{
-    const {id} =req.params
-})
+// app.get("/posts/:id",(req,res)=>{
+//     const {id} =req.params
+// })
 
 app.post('/posts',async(req,res)=>{
     console.log(req.body)

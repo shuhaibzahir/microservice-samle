@@ -1,4 +1,4 @@
-name: Event docker Image CD
+name: Post Docker Image CD
 
 on:
   push:
@@ -25,10 +25,10 @@ jobs:
         name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
       -
-        name: Event-bus
+        name: posts
         uses: docker/build-push-action@v2
         with:
-          file: ./events/Dockerfile
+          file: ./posts/Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/eventbus:latest
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/posts:latest
         
