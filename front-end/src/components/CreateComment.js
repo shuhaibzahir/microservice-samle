@@ -4,7 +4,7 @@ const CreateComment = ({id}) => {
     const [comment ,setComment] = useState('')
     const submiComment =async(e)=>{
         e.preventDefault()
-       await axios.post(`http://localhost:6060/posts/${id}/comments`,{content:comment})
+       await axios.post(`http://localhost:30149/posts/${id}/comments`,{content:comment})
        setComment('')
     }
   return (
